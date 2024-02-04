@@ -8,6 +8,6 @@ configMapGenerator:
 - name: prometheus-server-conf
   files:
   - config-files/prometheus.rules
-  - config-files/prometheus.yml
+  - config-files/prometheus.yaml
 generatorOptions:
   disableNameSuffixHash: true
