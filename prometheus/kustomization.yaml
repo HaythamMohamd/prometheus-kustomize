@@ -4,7 +4,6 @@ resources:
 - manifests/deployment.yaml
 - manifests/service.yaml
 - manifests/pvc.yaml
-- config-files/nginx.yaml
 configMapGenerator:
 - name: prometheus-server-conf
   files:
