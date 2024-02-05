@@ -1,0 +1,14 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: alertmanager-templates
+data:
+  microsoft-teams.tmpl: |
+    {{ define "teams.simple" }}
+    {
+      "@type": "MessageCard",
+      "title": "Prometheus Alert ({{ .Status }})",
+      "text": "{{ .CommonAnnotations.summary }}",
+      "themeColor": "{{ if eq .Status "resolved" }}2DC72D{{ else if eq .Status "firing" }}FF0000{{ else }}808080{{ end }}"
+    }
+    {{ end }}

@@ -1,0 +1,66 @@
+# Source: prometheus-msteams/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-msteams
+  labels:
+    app: prometheus-msteams
+    chart: prometheus-msteams-1.5.2
+    release: prometheus-msteams
+    heritage: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-msteams
+      release: prometheus-msteams
+  template:
+    metadata:
+      labels:
+        app: prometheus-msteams
+        release: prometheus-msteams
+      annotations:
+        checksum/config: 5a0c213a81c2bab7811b4b962870deda60b635296d47767ea666c7885e417864
+        checksum/msteams-card-templates: 159dd39e0712672ba37bc14f6e24aa99dba9f049a10e13c8f42de11788e74a96
+    spec:
+      volumes:
+        - name: config-volume
+          configMap:
+            name: prometheus-msteams-config
+        - name: card-template-volume
+          configMap:
+            name: prometheus-msteams-card-template
+      containers:
+        - name: prometheus-msteams
+          image: "quay.io/prometheusmsteams/prometheus-msteams:v1.5.2"
+          imagePullPolicy: Always
+          env:
+          volumeMounts:
+            - name: config-volume
+              mountPath: /etc/config
+            - name: card-template-volume
+              mountPath: /etc/template
+          args:
+            - -config-file=/etc/config/connectors.yaml
+            - -template-file=/etc/template/card.tmpl
+          ports:
+          - name: http
+            containerPort: 2000
+            protocol: TCP
+          readinessProbe:
+            httpGet:
+              path: /config
+              port: http
+            initialDelaySeconds: 1
+            periodSeconds: 3
+          livenessProbe:
+            httpGet:
+              path: /config
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 20
+          resources:
+            {}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000

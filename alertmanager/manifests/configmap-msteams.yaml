@@ -1,0 +1,9 @@
+# Source: prometheus-msteams/templates/configMapConfig.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-msteams-config
+data:
+  connectors.yaml: |
+    connectors:
+      - alertmanger: https://sciencehelwanedu.webhook.office.com/webhookb2/9e7bc479-cd0c-4ebb-8dd4-506d90cceb8f@4b6778d7-95aa-4bc6-9b34-f2e341791192/IncomingWebhook/2517ee7532594a8aa831624f954ce94e/0575c367-e0e6-4ea6-991f-177f5f5cc2a1

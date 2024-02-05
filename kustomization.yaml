@@ -1,0 +1,37 @@
+namespace: monitoring
+resources:
+# this for prometheus
+- prometheus/manifests/clusterrole.yaml
+- prometheus/manifests/deployment.yaml
+- prometheus/manifests/service.yaml
+- prometheus/manifests/pvc.yaml
+
+# this for alertmanager
+- alertmanager/manifests/configmap-msteams-crad.yaml
+- alertmanager/manifests/configmap-msteams.yaml
+- alertmanager/manifests/configmap-templates.yaml
+- alertmanager/manifests/configmap.yaml
+- alertmanager/manifests/deployment-msteams.yaml
+- alertmanager/manifests/deployment.yaml
+- alertmanager/manifests/service-msteams.yaml
+- alertmanager/manifests/service.yaml
+
+# this for k8s metrics
+- kubeMetrics/manifests/cluster-role-binding.yaml
+- kubeMetrics/manifests/cluster-role.yaml
+- kubeMetrics/manifests/deployment.yaml
+- kubeMetrics/manifests/service-account.yaml
+- kubeMetrics/manifests/service.yaml
+
+# this grafana
+- grafana/manifests/grafana.yaml
+- grafana/manifests/pvc.yaml
+- grafana/manifests/service.yaml
+
+configMapGenerator:
+- name: prometheus-server-conf
+  files:
+  - prometheus/config-files/prometheus.rules
+  - prometheus/config-files/prometheus.yaml
+generatorOptions:
+  disableNameSuffixHash: true
