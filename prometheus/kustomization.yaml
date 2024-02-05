@@ -5,6 +5,13 @@ resources:
 - manifests/service.yaml
 - manifests/pvc.yaml
 - manifests/alertmanager.yaml
+# this for metrics
+- kube-stats-metrics-configs/cluster-role-binding.yaml
+- kube-stats-metrics-configs/cluster-role.yaml
+- kube-stats-metrics-configs/deployment.yaml
+- kube-stats-metrics-configs/service-account.yaml
+- kube-stats-metrics-configs/service.yaml
+
 configMapGenerator:
 - name: prometheus-server-conf
   files:
