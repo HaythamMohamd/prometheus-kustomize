@@ -6,11 +6,11 @@ resources:
 - manifests/pvc.yaml
 - manifests/alertmanager.yaml
 # this for metrics
-- kube-stats-metrics-configs/cluster-role-binding.yaml
-- kube-stats-metrics-configs/cluster-role.yaml
-- kube-stats-metrics-configs/deployment.yaml
-- kube-stats-metrics-configs/service-account.yaml
-- kube-stats-metrics-configs/service.yaml
+- kubeMetrics/cluster-role-binding.yaml
+- kubeMetrics/cluster-role.yaml
+- kubeMetrics/deployment.yaml
+- kubeMetrics/service-account.yaml
+- kubeMetrics/service.yaml
 
 configMapGenerator:
 - name: prometheus-server-conf
