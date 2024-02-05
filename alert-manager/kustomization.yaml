@@ -1,0 +1,9 @@
+namespace: nginx-test
+resources:
+- manifests/deployment.yaml
+configMapGenerator:
+- name: example-configmap-1
+files:
+- config-files/test
+generatorOptions:
+disableNameSuffixHash: true
