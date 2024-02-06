@@ -1,0 +1,8 @@
+namespace: velero
+resources:
+- manifests/deployment.yaml
+- manifests/service.yaml
+- manifests/job.yaml
+- manifests/pvc.yaml
+generatorOptions:
+  disableNameSuffixHash: true
