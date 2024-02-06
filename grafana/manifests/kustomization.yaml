@@ -1,9 +1,0 @@
-namespace: monitoring
-resources:
-
-# this for grafana
-- grafana1/manifests/grafana.yaml
-- grafana1/manifests/pvc.yaml
-- grafana1/manifests/service.yaml
-generatorOptions:
-  disableNameSuffixHash: true
