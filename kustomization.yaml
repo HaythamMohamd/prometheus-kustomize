@@ -21,9 +21,9 @@ resources:
 - alertmanager/manifests/service.yaml
 
 # this for grafana
-- grafana1/manifests/grafana.yaml
-- grafana1/manifests/pvc.yaml
-- grafana1/manifests/service.yaml
+- grafana/manifests/grafana.yaml
+- grafana/manifests/pvc.yaml
+- grafana/manifests/service.yaml
 
 # this for k8s metrics
 - kubeMetrics/manifests/cluster-role-binding.yaml
