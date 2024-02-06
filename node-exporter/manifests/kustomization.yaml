@@ -1,0 +1,8 @@
+namespace: monitoring
+resources:
+# this for node-exporter
+- node-exporter/manifests/deployment.yaml
+- node-exporter/manifests/service.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true
