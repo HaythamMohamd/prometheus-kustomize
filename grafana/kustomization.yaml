@@ -1,0 +1,10 @@
+namespace: monitoring
+resources:
+
+# this for grafana
+- manifests/grafana.yaml
+- manifests/pvc.yaml
+- manifests/service.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true

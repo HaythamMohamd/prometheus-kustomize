@@ -1,0 +1,16 @@
+namespace: monitoring
+resources:
+
+
+# this for alertmanager
+- manifests/configmap-msteams-crad.yaml
+- manifests/configmap-msteams.yaml
+- manifests/configmap-templates.yaml
+- manifests/configmap.yaml
+- manifests/deployment-msteams.yaml
+- manifests/deployment.yaml
+- manifests/service-msteams.yaml
+- manifests/service.yaml
+
+generatorOptions:
+  disableNameSuffixHash: true

@@ -1,0 +1,11 @@
+namespace: monitoring
+resources:
+
+# this for k8s metrics
+- manifests/cluster-role-binding.yaml
+- manifests/cluster-role.yaml
+- manifests/deployment.yaml
+- manifests/service-account.yaml
+- manifests/service.yaml
+generatorOptions:
+  disableNameSuffixHash: true
