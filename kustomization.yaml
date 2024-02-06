@@ -28,6 +28,10 @@ resources:
 - grafana1/manifests/pvc.yaml
 - grafana1/manifests/service.yaml
 
+# this for node-exporter
+- node-exporter/manifests/deployment.yaml
+- node-exporter/manifests/service.yaml
+
 configMapGenerator:
 - name: prometheus-server-conf
   files:
