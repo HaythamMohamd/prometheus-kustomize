@@ -23,7 +23,7 @@ resources:
 - kubeMetrics/manifests/service-account.yaml
 - kubeMetrics/manifests/service.yaml
 
-# this grafana
+# this for grafana
 - grafana/manifests/grafana.yaml
 - grafana/manifests/pvc.yaml
 - grafana/manifests/service.yaml
